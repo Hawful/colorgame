@@ -102,6 +102,6 @@ function resetGame(){
 	}
 
 	resetButton.textContent = "New Colors";
-	h1.style.backgroundColor ="#232323"
+	h1.style.backgroundColor ="steelblue"
 	message.textContent = "";
 }
