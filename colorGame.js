@@ -7,13 +7,21 @@ var colorDisplay = document.getElementById("colorDisplay");
 var message = document.getElementById("message")
 var h1 = document.querySelector("h1");
 var resetButton = document.getElementById("reset");
-var hardBtn = document.getElementById("hardBtn");
-var easyBtn = document.getElementById("easyBtn");
+var modeButtons = document.querySelectorAll(".mode");
 
 var pickedColor = pickColor();
 
-
 colorDisplay.textContent = pickedColor;
+
+for (var i = 0; i < modeButtons.length; i++) {
+	modeButtons[i].addEventListener("click", function(){
+		modeButtons[0].classList.remove("selected");
+		modeButtons[1].classList.remove("selected");
+		this.classList.add("selected");
+		this.textContent === "Easy" ? numColors = 3: numColors = 6;
+		resetGame();
+	});
+}
 
 for(var i = 0; i < squares.length; i++){
 	//add colors to squares
@@ -35,20 +43,6 @@ for(var i = 0; i < squares.length; i++){
 		}
 	});
 };
-
-easyBtn.addEventListener("click", function(){
-	easyBtn.classList.add("selected");
-	hardBtn.classList.remove("selected");
-	numColors = 3;
-	resetGame();
-});
-
-hardBtn.addEventListener("click", function(){
-	hardBtn.classList.add("selected");
-	easyBtn.classList.remove("selected");
-	numColors = 6;
-	resetGame();
-});
 
 resetButton.addEventListener("click", function(){
 	resetGame();
